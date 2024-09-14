@@ -1,18 +1,15 @@
 import nmap
 
 nm = nmap.PortScanner()
-nm.scan("localhost","10-802")
+nm.scan("localhost", "22,8081")
 
 log_file = "/var/log/nmap_results.log"
 
 f = open(log_file, "a")
-
-f.write("------------------------------------")
-f.write("")
+print("Scan Results")
+print(nm.csv())
+f.write("------------------------------------\n")
 f.write((nm.csv()))
-f.write("")
-f.write("------------------------------------")
-f.write("")
 
 f.close()
 
