@@ -107,4 +107,3 @@ async def post_status_scan(request: Request):
     logging.debug("polling status scan")
 
 logging.basicConfig(level=logging.DEBUG)
-uvicorn.run(app, host="localhost", port=4040)
