@@ -1,7 +1,7 @@
 import subprocess
 import logging
 import asyncio
-from pymetasploit3.msfrpc import MsfRpcClient
+#from pymetasploit3.msfrpc import MsfRpcClient
 # from database import ExploitDB
 
 
