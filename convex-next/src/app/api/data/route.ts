@@ -34,6 +34,9 @@ export async function POST(request: Request) {
     for (let i = convexLength; i < fileLength; i++) {
       const entry = convertedLogToJson[i];
       console.log("adding entry", entry);
+      if (entry.host === "host") {
+        break;
+      }
       await fetchMutation(api.addNmapLog.addNmapLogEntry, entry);
     }
   }
