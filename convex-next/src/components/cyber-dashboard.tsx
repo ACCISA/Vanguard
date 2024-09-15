@@ -9,13 +9,12 @@ import {
   Lock,
   AlertTriangle,
 } from "lucide-react";
-
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import ResultsTab from "./results-tab";
 
-export function CyberDashboard() {
+const CyberDashboard = () => {
   const [activeTab, setActiveTab] = useState("network");
 
   const tabs = [
@@ -79,7 +78,9 @@ export function CyberDashboard() {
       </div>
     </div>
   );
-}
+};
+
+export default CyberDashboard;
 
 function NetworkTab() {
   return (
