@@ -1,0 +1,200 @@
+[
+{
+  "network_found": true,
+  "client_associating": false,
+  "message_num": 0,
+  "mac_ap": "74:da:38:6b:98:dd",
+  "mac_cl": null,
+  "nonce_ap": null,
+  "nonce_cl": null,
+  "hashline": null,
+  "events": [
+    {
+      "type": "network_found",
+      "essid": "PixelVictim",
+      "ap_mac_address": "74:da:38:6b:98:dd"
+    }
+  ]
+},
+
+{
+  "network_found": true,
+  "client_associating": true,
+  "message_num": 0,
+  "mac_ap": "74:da:38:6b:98:dd",
+  "mac_cl": null,
+  "nonce_ap": null,
+  "nonce_cl": null,
+  "hashline": null,
+  "events": [
+    {
+      "type": "network_found",
+      "essid": "PixelVictim",
+      "ap_mac_address": "74:da:38:6b:98:dd"
+    },
+    {
+      "type": "client_associating"
+    }
+  ]
+},
+{
+  "network_found": true,
+  "client_associating": true,
+  "message_num": 1,
+  "mac_ap": "74:da:38:6b:98:dd",
+  "mac_cl": null,
+  "nonce_ap": null,
+  "nonce_cl": null,
+  "hashline": null,
+  "events": [
+    {
+      "type": "network_found",
+      "essid": "PixelVictim",
+      "ap_mac_address": "74:da:38:6b:98:dd"
+    },
+    {
+      "type": "client_associating"
+    },
+    {
+      "type": "handshake_captured",
+      "message_num": 1
+    }
+  ]
+},
+{
+  "network_found": true,
+  "client_associating": true,
+  "message_num": 2,
+  "mac_ap": "74:da:38:6b:98:dd",
+  "mac_cl": null,
+  "nonce_ap": null,
+  "nonce_cl": null,
+  "hashline": null,
+  "events": [
+    {
+      "type": "network_found",
+      "essid": "PixelVictim",
+      "ap_mac_address": "74:da:38:6b:98:dd"
+    },
+    {
+      "type": "client_associating"
+    },
+    {
+      "type": "handshake_captured",
+      "message_num": 1
+    },
+    {
+      "type": "handshake_captured",
+      "message_num": 2
+    }
+  ]
+},
+{
+  "network_found": true,
+  "client_associating": true,
+  "message_num": 3,
+  "mac_ap": "74:da:38:6b:98:dd",
+  "mac_cl": null,
+  "nonce_ap": null,
+  "nonce_cl": null,
+  "hashline": null,
+  "events": [
+    {
+      "type": "network_found",
+      "essid": "PixelVictim",
+      "ap_mac_address": "74:da:38:6b:98:dd"
+    },
+    {
+      "type": "client_associating"
+    },
+    {
+      "type": "handshake_captured",
+      "message_num": 1
+    },
+    {
+      "type": "handshake_captured",
+      "message_num": 2
+    },
+    {
+      "type": "handshake_captured",
+      "message_num": 3
+    }
+  ]
+},
+{
+  "network_found": true,
+  "client_associating": true,
+  "message_num": 4,
+  "mac_ap": "74:da:38:6b:98:dd",
+  "mac_cl": null,
+  "nonce_ap": null,
+  "nonce_cl": null,
+  "hashline": null,
+  "events": [
+    {
+      "type": "network_found",
+      "essid": "PixelVictim",
+      "ap_mac_address": "74:da:38:6b:98:dd"
+    },
+    {
+      "type": "client_associating"
+    },
+    {
+      "type": "handshake_captured",
+      "message_num": 1
+    },
+    {
+      "type": "handshake_captured",
+      "message_num": 2
+    },
+    {
+      "type": "handshake_captured",
+      "message_num": 3
+    },
+    {
+      "type": "handshake_captured",
+      "message_num": 4
+    }
+  ]
+},
+{
+  "network_found": true,
+  "client_associating": true,
+  "message_num": 4,
+  "mac_ap": "74:da:38:6b:98:dd",
+  "mac_cl": null,
+  "nonce_ap": null,
+  "nonce_cl": null,
+  "hashline": "WPA*02*9be65a7cfb05877db5401b14195414a0*74da386b98dd*c82158bd60e1*506978656c56696374696d*b0f8abd79d6b5576a70eb8096c0edfe58521700b53419b901a2efd4d872de252*0103007702010a00000000000000000001dbf64148d9446f4d2437989ea0e4a17c141bcb0df18b04295dc73bccafb679ac000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001830160100000fac040100000fac040100000fac023c000000*00",
+  "events": [
+    {
+      "type": "network_found",
+      "essid": "PixelVictim",
+      "ap_mac_address": "74:da:38:6b:98:dd"
+    },
+    {
+      "type": "client_associating"
+    },
+    {
+      "type": "handshake_captured",
+      "message_num": 1
+    },
+    {
+      "type": "handshake_captured",
+      "message_num": 2
+    },
+    {
+      "type": "handshake_captured",
+      "message_num": 3
+    },
+    {
+      "type": "handshake_captured",
+      "message_num": 4
+    },
+    {
+      "type": "hashline",
+      "hashline": "WPA*02*9be65a7cfb05877db5401b14195414a0*74da386b98dd*c82158bd60e1*506978656c56696374696d*b0f8abd79d6b5576a70eb8096c0edfe58521700b53419b901a2efd4d872de252*0103007702010a00000000000000000001dbf64148d9446f4d2437989ea0e4a17c141bcb0df18b04295dc73bccafb679ac000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001830160100000fac040100000fac040100000fac023c000000*00"
+    }
+  ]
+}
+]
