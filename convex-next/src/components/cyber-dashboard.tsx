@@ -47,7 +47,7 @@ const CyberDashboard = () => {
       {/* Sidebar */}
       <div className="w-64 bg-gray-900 p-4">
         <div className="flex items-center mb-8">
-          <Image src={ImageD} alt="Vanguard" width={220} height={220} />
+          <Image src={ImageD} alt="Vanguard" width={220} height={220} className="rounded-2xl" />
         </div>
         <nav>
           {tabs.map((tab) => (
