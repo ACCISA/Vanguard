@@ -160,45 +160,8 @@ function VulnerabilitiesTab() {
 
 function IncidentsTab() {
   return (
-    <div className="space-y-4">
-      <Card className="bg-gray-800 border-red-500">
-        <CardHeader>
-          <CardTitle className="text-red-500">Recent Incidents</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <ul className="space-y-2">
-            <li className="flex justify-between items-center">
-              <span>Brute force attack attempt</span>
-              <span className="text-xs text-gray-400">2 hours ago</span>
-            </li>
-            <li className="flex justify-between items-center">
-              <span>Suspicious file upload detected</span>
-              <span className="text-xs text-gray-400">5 hours ago</span>
-            </li>
-            <li className="flex justify-between items-center">
-              <span>Unauthorized access to admin panel</span>
-              <span className="text-xs text-gray-400">1 day ago</span>
-            </li>
-          </ul>
-        </CardContent>
-      </Card>
-      <Card className="bg-gray-800 border-green-500">
-        <CardHeader>
-          <CardTitle className="text-green-500">Incident Response</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-2">
-            <p>
-              Current Status:{" "}
-              <span className="font-bold text-yellow-500">Investigating</span>
-            </p>
-            <p>
-              Team on call: <span className="font-bold">Alpha Team</span>
-            </p>
-            <p>Next steps: Isolate affected systems and analyze logs</p>
-          </div>
-        </CardContent>
-      </Card>
+    <div height="100%">
+	<iframe src="http://192.168.157.53:3000/d/rYdddlPWk/node-exporter-full?orgId=1&from=1726368815628&to=1726383124710&kiosk" width="100%" frameborder="0" height="700"></iframe>
     </div>
   );
 }
