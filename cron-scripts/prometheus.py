@@ -1,13 +1,7 @@
-import nmap3
 import json
 from prometheus_client import CollectorRegistry, Counter, Gauge, generate_latest
 import re
 import os
-
-from ingest import append_json
-
-
-
 
 def parse_metrics_file(name, METRICS_FILE):
     if not os.path.exists(METRICS_FILE):
@@ -26,7 +20,7 @@ def increment_counter(name, METRICS_FILE):
     current_counter = parse_metrics_file(name, METRICS_FILE)
 
     registry = CollectorRegistry()
-    REQUESTS = Gauge('network_counter_total', 'Times cron job ran', registry=registry)
+    REQUESTS = Gauge(name, 'Times cron job ran', registry=registry)
 
     REQUESTS.set(float(current_counter)+float(1))
 
