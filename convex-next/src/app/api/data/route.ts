@@ -35,6 +35,7 @@ export async function POST(request: Request) {
     for (let i = convexLength; i < fileLength; i++) {
       const entry = convertedLogToJson[i];
       console.log("adding entry", entry);
+      console.log(entry.host, "is the host");
       if (entry.host === "host") {
         res = convertedLogToJson.slice(i + 1);
         break;
