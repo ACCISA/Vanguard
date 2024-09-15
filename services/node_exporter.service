@@ -1,0 +1,14 @@
+[Unit]
+Description=Node Exporter
+After=network.target
+
+[Service]
+User=htn
+Group=htn
+ExecStart=/home/htn/htn/cron-scripts/node_exporter --collector.textfile.directory=/var/log/prom
+Restart=always
+RestartSec=10
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
