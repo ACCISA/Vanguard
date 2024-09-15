@@ -8,7 +8,7 @@ import { fetchMutation, fetchQuery } from "convex/nextjs";
 export async function POST(request: Request) {
   console.log("Endpoint Hit!");
 
-  const filePath = path.resolve(process.cwd(), "scan_results.log");
+  const filePath = path.resolve("/var/log/json","nmap_results.log");
 
   // Read the file content
   const logFileData = fs.readFileSync(filePath, "utf-8");

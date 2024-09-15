@@ -347,7 +347,7 @@ function IncidentsTab() {
   return (
     <div style={{ height: "100%" }}>
       <iframe
-        src="http://192.168.157.53:3000/d/rYdddlPWk/node-exporter-full?orgId=1&from=1726368815628&to=1726383124710&kiosk"
+        src="http://192.168.157.53:3000/d/rYdddlPWk/node-exporter-full?orgId=1&from=1726367198835&to=1726395782089&kiosk"
         width="100%"
         height="700"
       ></iframe>
