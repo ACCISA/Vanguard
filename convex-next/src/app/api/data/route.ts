@@ -28,6 +28,7 @@ export async function POST(request: Request) {
     });
   }
 
+  let res = [];
   if (fileLength > convexLength) {
     console.log("new entries found");
     // add the new entries to the database
@@ -35,6 +36,7 @@ export async function POST(request: Request) {
       const entry = convertedLogToJson[i];
       console.log("adding entry", entry);
       if (entry.host === "host") {
+        res = convertedLogToJson.slice(i + 1);
         break;
       }
       await fetchMutation(api.addNmapLog.addNmapLogEntry, entry);
@@ -44,7 +46,7 @@ export async function POST(request: Request) {
   return NextResponse.json({
     message: "File data retrieved successfully",
     success: true,
-    data: convertedLogToJson,
+    data: res,
   });
 }
 
