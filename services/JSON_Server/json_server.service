@@ -1,0 +1,13 @@
+[Unit]
+Description=Python HTTP Server to serve files from a specific directory
+After=network.target
+
+[Service]
+ExecStart=python3 /home/htn/htn/services/JSON_Server/server.py
+User=htn
+Restart=always
+RestartSec=10  # Restart service after 10 seconds if node service crashes
+
+[Install]
+WantedBy=multi-user.target
+
