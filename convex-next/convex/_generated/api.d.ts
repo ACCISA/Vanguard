@@ -16,6 +16,8 @@ import type {
   FunctionReference,
 } from "convex/server";
 import type * as addNmapLog from "../addNmapLog.js";
+import type * as crons from "../crons.js";
+import type * as logs from "../logs.js";
 import type * as nmapLogs from "../nmapLogs.js";
 
 /**
@@ -28,6 +30,8 @@ import type * as nmapLogs from "../nmapLogs.js";
  */
 declare const fullApi: ApiFromModules<{
   addNmapLog: typeof addNmapLog;
+  crons: typeof crons;
+  logs: typeof logs;
   nmapLogs: typeof nmapLogs;
 }>;
 export declare const api: FilterApi<
