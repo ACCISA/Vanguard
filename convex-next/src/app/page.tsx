@@ -11,8 +11,6 @@ const DashboardPage = () => {
 
   const [error, setError] = useState<string | null>(null);
 
-  console.log(data);
-  console.log(error);
   useEffect(() => {
     const fetchData = async () => {
       try {

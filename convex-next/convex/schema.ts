@@ -11,7 +11,7 @@ export default defineSchema({
     hostname: v.string(),
     hostname_type: v.string(),
     protocol: v.string(),
-    port: v.number(),
+    port: v.string(),
     name: v.string(),
     state: v.string(),
     product: v.string(),

@@ -9,10 +9,13 @@ import {
   Lock,
   AlertTriangle,
 } from "lucide-react";
+import ImageD from "@/app/image.png";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import ResultsTab from "./results-tab";
+
+import Image from "next/image";
 
 const CyberDashboard = () => {
   const [activeTab, setActiveTab] = useState("network");
@@ -20,8 +23,8 @@ const CyberDashboard = () => {
   const tabs = [
     { id: "network", icon: Wifi, label: "Network" },
     { id: "vulnerabilities", icon: AlertTriangle, label: "Vulnerabilities" },
-    { id: "incidents", icon: Activity, label: "Incidents" },
-    { id: "results", icon: Terminal, label: "Results" },
+    { id: "incidents", icon: Activity, label: "Metrics" },
+    { id: "results", icon: Terminal, label: "Nmap Scans" },
   ];
 
   const renderContent = () => {
@@ -44,8 +47,7 @@ const CyberDashboard = () => {
       {/* Sidebar */}
       <div className="w-64 bg-gray-900 p-4">
         <div className="flex items-center mb-8">
-          <Shield className="w-8 h-8 mr-2" />
-          <h1 className="text-2xl font-bold">CyberShield</h1>
+          <Image src={ImageD} alt="Vanguard" width={220} height={220} />
         </div>
         <nav>
           {tabs.map((tab) => (
