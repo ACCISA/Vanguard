@@ -39,6 +39,7 @@ export async function POST(request: Request) {
       console.log(entry.host, "is the host");
       if (entry.host === "host") {
         res = convertedLogToJson.slice(i + 1);
+        console.log(res);
         break;
       }
       await fetchMutation(api.addNmapLog.addNmapLogEntry, entry);
