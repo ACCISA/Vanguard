@@ -1,11 +1,11 @@
 import logging
-from network import Network
-from machine import Machine
 from fastapi import FastAPI, HTTPException, Request
-from fastapi.responses import JSONResponse
+from fastapi.responses import FileResponse, JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 import asyncio
+import aiofiles  # For async file handling
+import os  # To check if the file exists
 
 logging.basicConfig(
     level=logging.DEBUG,
@@ -25,23 +25,26 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# exploits = database.ExploitDB()
-
-data = [
-    ("2.3.4", "exploit/unix/ftp/vsftpd_234_backdoor", "RHOSTS"),
-    ("8.3.0 - 8.3.7", "exploit/linux/postgres/postgres_payload", "RHOSTS"),
-]
-
-# exploits.add_entry(data)
-
-# exploits.retrieve_data("2.3.4")
-# exploits.retrieve_data("8.3.0 - 8.3.7")
-
-network = None
+network = None  # Placeholder for network scanning logic
 
 
 async def assign_scan_result():
     await network.runInitialNetworkScan()
+
+
+@app.post("/results")
+async def post_results(request: Request):
+    logging.debug("Attempting to fetch results file")
+
+    file_path = f"/var/log/nmap_results.log"  # Adjust this path as needed
+
+    # Check if the file exists
+    if not os.path.isfile(file_path):
+        raise HTTPException(status_code=404, detail="File not found")
+
+    print(FileResponse(file_path))
+    # Serve the file
+    return FileResponse(file_path)
 
 
 @app.post("/interact")
