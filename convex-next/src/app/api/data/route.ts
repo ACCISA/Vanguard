@@ -34,6 +34,9 @@ export async function POST(request: Request) {
     for (let i = convexLength; i < fileLength; i++) {
       const entry = convertedLogToJson[i];
       console.log("adding entry", entry);
+      if (entry.host === "host") {
+        break;
+      }
       await fetchMutation(api.addNmapLog.addNmapLogEntry, entry);
     }
   }
@@ -49,10 +52,8 @@ function logToJson(log: any) {
   // Split log data into lines
   const lines = log.split("\n");
 
-  // Clean up escape characters like \r from headers and split them into an array
-  const headers = lines[0]
-    .replace(/\\r|\\n|\\t/g, "") // Removing common escape characters
-    .split(";");
+  // Extract the headers (first row)
+  const headers = lines[0].split(";");
 
   // Map the remaining rows to objects using the headers
   const jsonData = lines
@@ -69,9 +70,9 @@ function logToJson(log: any) {
       const fields = trimmedLine.split(";");
 
       // Create a JSON object for each row
-      const entry: { [key: string]: string } = {};
-      headers.forEach((header: string, index: number) => {
-        entry[header.trim()] = fields[index]?.replace(/"/g, "").trim() || ""; // Removing quotes and trimming spaces
+      const entry = {};
+      headers.forEach((header: any, index: any) => {
+        entry[header] = fields[index]?.replace(/"/g, "") || ""; // Removing quotes and handling missing fields
       });
 
       return entry;
