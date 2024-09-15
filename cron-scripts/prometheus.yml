@@ -1,0 +1,8 @@
+scrape_configs:
+  - job_name: 'cron_metrics'
+    static_configs:
+      - targets: ['localhost:1212']
+  - job_name: 'node'
+    static_configs:
+      - targets: ['192.168.157.53:9100']
+    scrape_interval: 5s
