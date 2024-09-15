@@ -34,6 +34,7 @@ export async function POST(request: Request) {
     // add the new entries to the database
     for (let i = convexLength; i < fileLength; i++) {
       const entry = convertedLogToJson[i];
+      console.log(i);
       console.log("adding entry", entry);
       console.log(entry.host, "is the host");
       if (entry.host === "host") {
