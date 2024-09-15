@@ -1,0 +1,4 @@
+* * * * * root python3 /home/htn/htn/cron-scripts/cron-network.py
+*/10 * * * * root python3 /home/htn/htn/cron-scripts/cron-os.py
+*/7 * * * * root python3 /home/htn/htn/cron-scripts/cron-ports.py
+*/5 * * * * root python3 /home/htn/htn/cron-scripts/cron-scanner.py
